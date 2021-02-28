@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import os
 import requests
 import json
@@ -40,10 +40,14 @@ def dashboard(item):
     print(values)
     return render_template('dashboard.html', values=values, labels=labels, label=str(item), items=data, item=get_field(str(item)))
 
-
 @app.route('/planner')
-def med_planner():
-    return render_template('medicine.html', time_conv="AM")
+def planner():
+    return redirect('/planner/AM')
+
+
+@app.route('/planner/<time>')
+def med_planner(time):
+    return render_template('medicine.html', time_conv=time)
 
 
 @app.route('/settings')

@@ -50,3 +50,31 @@ def del_health_data(del_data):
     conn.commit()
     conn.close()
 
+
+def get_plan_data():
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        result = cursor.execute('SELECT * FROM planner;')
+        data = cursor.fetchall()
+        if result > 0:
+            got_data = jsonify(data)
+        else:
+            got_data = 'No Medicine Plan Data in DB'
+    conn.close()
+    return got_data
+
+
+def add_plan_data(data):
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        cursor.execute('INSERT INTO planner (email, date, age, blood_pressure, heart_rate, body_temp, height, weight) VALUES("%s", "%s", %d, "%s", %d, %d, %f, %f)' % (data["email"], data["date"], data["age"], data["blood_pressure"], data["heart_rate"], data["body_temp"], data["height"], data["weight"]))
+    conn.commit()
+    conn.close()
+
+
+def del_plan_data(del_data):
+    conn = open_connection()
+    with conn.cursor() as cursor:
+        cursor.execute('DELETE FROM planner WHERE email = "%s" AND date = "%s"' % (del_data["email"], del_data["date"]))
+    conn.commit()
+    conn.close()
