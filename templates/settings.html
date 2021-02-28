@@ -119,7 +119,41 @@
       </nav>
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-
+        <h1 class="h2">
+          Change Your Details
+        </h1>
+        <style>
+          .h2 {
+            margin-top: 15px;
+          }
+          .form-control {
+            margin-bottom: 5px;
+          }
+        </style>
+        <label for="inputfname" class="visually-hidden">First Name</label>
+        <input type="text" id="inputfname" class="form-control" placeholder="First Name" required>
+        
+        <label for="inputlname" class="visually-hidden">Last Name</label>
+        <input type="text" id="inputlname" class="form-control" placeholder="Last Name" required>
+        
+        <label for="inputEmail" class="visually-hidden">Email Address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email Address" required autofocus>
+        
+        <label for="inputPassword" class="visually-hidden">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        
+        <label for="inputAge" class="visually-hidden">Age</label>
+        <input type="number" id="inputAge" class="form-control" placeholder="Age" required>
+        
+        <label for="inputEmergencyName" class="visually-hidden">Emergency Contact Name</label>
+        <input type="tel" id="inputEmergencyName" class="form-control" placeholder="Emergency Contact Name" required>
+    
+        <label for="inputEmergencyPhone" class="visually-hidden">Emergency Contact Phone</label>
+        <input type="tel" id="inputEmergencyPhone" class="form-control" placeholder="Emergency Contact Phone" required>
+        <button class="w-100 btn btn-lg btn-primary" id="submit-changes" type="submit">Submit Changes</button>
+        <style>
+          #submit-changes {margin-top: 20px;}
+        </style>
       </main>
     </div>
   </div>

@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request
-# from forms import *
 import os
 import requests
 import json
@@ -44,7 +43,7 @@ def dashboard(item):
 
 @app.route('/planner')
 def med_planner():
-    return render_template('medicine.html')
+    return render_template('medicine.html', time_conv="AM")
 
 
 @app.route('/settings')
